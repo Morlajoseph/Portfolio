@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>👋 MORLA JOSEPH — Portfolio</title>
+  <meta name="description" content="Single-file, clean, responsive developer portfolio." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #0b1020; --bg-soft:#111734; --text:#e9edf5; --muted:#aab3c5;
+      --brand:#7c5cff; --brand-2:#00e0b8; --card:#0e1530;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    body.light{ --bg:#f7f8fe; --bg-soft:#fff; --text:#0c1222; --muted:#475069; --card:#fff; --shadow:0 10px 30px rgba(10,20,70,.08);}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:color-mix(in oklab,var(--bg) 80%,transparent);border-bottom:1px solid color-mix(in oklab,var(--text) 10%,transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow)}
+    nav ul{display:flex;gap:20px;list-style:none;padding:0;margin:0}
+    nav a{padding:8px 12px;border-radius:12px;border:1px solid transparent}
+    nav a:hover{border-color:color-mix(in oklab,var(--brand) 55%,transparent);background:color-mix(in oklab,var(--brand) 12%,transparent)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid color-mix(in oklab,var(--text) 15%,transparent);background:var(--bg-soft);color:var(--text);box-shadow:var(--shadow);cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border:none;color:#fff}
+    .btn.small{padding:8px 10px;border-radius:12px}
+    .hero{padding:72px 0 36px;display:grid;grid-template-columns:1.4fr .9fr;gap:36px;align-items:center}
+    h1{font-size:clamp(28px,4.2vw,46px);line-height:1.1;margin:14px 0 10px}
+    .lead{font-size:clamp(15px,1.6vw,18px);color:var(--muted)}
+    .hero-cta{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+    .stat{background:var(--card);padding:16px;border-radius:16px;border:1px solid color-mix(in oklab,var(--text) 10%,transparent)}
+    .stat b{font-size:22px}
+    .pfp{position:relative;isolation:isolate}
+    .pfp .card{background:var(--card);padding:18px;border-radius:18px;border:1px solid color-mix(in oklab,var(--text) 10%,transparent);box-shadow:var(--shadow)}
+    .pfp .glow{position:absolute;inset:-20px;z-index:-1;background:radial-gradient(600px 200px at 20% 20%,color-mix(in oklab,var(--brand) 35%, transparent),transparent 55%),radial-gradient(400px 180px at 80% 10%,color-mix(in oklab,var(--brand-2) 40%, transparent),transparent 60%)}
+    section{padding:56px 0}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .section-title h2{margin:0;font-size:clamp(22px,3vw,30px)}
+    .section-title .line{height:1px;flex:1;background:color-mix(in oklab,var(--text) 15%,transparent)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);padding:18px;border-radius:18px;border:1px solid color-mix(in oklab,var(--text) 10%,transparent);transition:transform .2s ease,border-color .2s}
+    .card:hover{transform:translateY(-4px);border-color:color-mix(in oklab,var(--brand) 35%,transparent)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:color-mix(in oklab,var(--text) 6%,transparent);border:1px solid color-mix(in oklab,var(--text) 15%,transparent)}
+    .timeline{position:relative;margin:10px 0 0;padding-left:14px}
+    .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:color-mix(in oklab,var(--text) 15%,transparent)}
+    .tl-item{position:relative;padding:14px 14px 14px 22px;margin-left:6px}
+    .tl-item::before{content:"";position:absolute;left:-2px;top:22px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 0 4px color-mix(in oklab,var(--text) 10%,transparent)}
+    footer{padding:30px 0 60px;color:var(--muted)}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}nav ul{display:none}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+    .muted{color:var(--muted)} .hidden{display:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top"><div class="logo"><span>MJ</span></div><span>MORLA JOSEPH</span></a>
+      <nav><ul>
+        <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li>
+      </ul></nav>
+      <div class="nav-cta">
+        <button id="themeToggle" class="btn small">🌗</button>
+        <a class="btn primary" href="#contact">Hire Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Morla Joseph</span> — Software Developer</h1>
+        <p class="lead">Final-year Computer Science Engineering student passionate about backend systems, frontend craft, and IoT solutions.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Let's Talk</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>2</b><br/><span class="muted">Projects</span></div>
+          <div class="stat"><b>2</b><br/><span class="muted">Internships</span></div>
+          <div class="stat"><b>3</b><br/><span class="muted">Years NSS Volunteer</span></div>
+        </div>
+      </div>
+      <div class="pfp">
+        <div class="glow"></div>
+        <div class="card">
+          <img src="../portofolio/assests/profilepic.jpg" alt="Profile"/>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title"><h2>About</h2><div class="line"></div></div>
+      <div class="grid">
+        <article class="card">
+          <h3>Who I Am</h3>
+          <p>I'm <b>Morla Joseph</b> from <b>Kavali, Andhra Pradesh, India</b>. Passionate about software development and IoT.</p>
+        </article>
+        <article class="card">
+          <h3>What I Do</h3>
+          <p>Build applications with Java, Spring Boot, HTML, CSS, SQL, and IoT integrations.</p>
+        </article>
+        <article class="card">
+          <h3>Currently</h3>
+          <p>Sharpening DSA, contributing to projects, and seeking opportunities in software development.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title"><h2>Skills</h2><div class="line"></div></div>
+      <div class="card">
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">HTML</span><span class="tag">CSS</span>
+          <span class="tag">IoT</span><span class="tag">Machine Learning</span><span class="tag">Git</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title"><h2>Projects</h2><div class="line"></div></div>
+      <div class="grid">
+        <article class="card">
+          <h3>IoT-Based Gas Level Monitoring & Leakage Detection</h3>
+          <p class="muted">IoT • NodeMCU • Blynk</p>
+          <p>Real-time gas leakage detection using MQ-series sensors and ESP8266 with alerts via IoT platform.</p>
+        </article>
+        <article class="card">
+          <h3>Travel Management System</h3>
+          <p class="muted">Java • JDBC</p>
+          <p>Manage travel plans, budgets, itineraries, payments, and feedback with Core Java & JDBC.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title"><h2>Experience</h2><div class="line"></div></div>
+      <div class="card timeline">
+        <div class="tl-item">
+          <h3>Java Full Stack Intern — Excelr</h3>
+          <small>2024</small>
+        </div>
+        <div class="tl-item">
+          <h3>Java Trainee — CV Corp</h3>
+          <small>2024</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-title"><h2>Education</h2><div class="line"></div></div>
+      <div class="grid">
+        <article class="card">
+          <h3>B.Tech — CSE (IoT)</h3>
+          <p class="muted">PBR Visvodaya Institute of Technology & Science • 2021–2025 • CGPA: 7.1/10</p>
+        </article>
+        <article class="card">
+          <h3>Intermediate — MPC</h3>
+          <p class="muted">MJPAPBCWER Jr. College • 2019–2021 • 84%</p>
+        </article>
+        <article class="card">
+          <h3>SSC</h3>
+          <p class="muted">ZP High School • GPA: 9.2/10</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><h2>Contact</h2><div class="line"></div></div>
+      <div class="grid">
+        <article class="card">
+          <h3>Reach me</h3>
+          <p>Email: <a href="mailto:morlajoseph40@gmail.com">morlajoseph40@gmail.com</a><br>
+             Phone: <a href="tel:+919121901706">+91 91219 01706</a><br>
+             GitHub: <a href="#">github.com/morlajoseph</a><br>
+             LinkedIn: <a href="#">linkedin.com/in/morlajoseph</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Quick message</h3>
+          <form id="contactForm">
+            <input id="name" name="name" required placeholder="Your name" style="width:100%;padding:12px;border-radius:12px;margin-bottom:10px"/>
+            <input id="email" name="email" type="email" required placeholder="Your email" style="width:100%;padding:12px;border-radius:12px;margin-bottom:10px"/>
+            <textarea id="msg" name="message" required placeholder="Say hello…" rows="4" style="width:100%;padding:12px;border-radius:12px;margin-bottom:10px"></textarea>
+            <button class="btn primary" type="submit">Send</button>
+            <span id="formStatus" class="muted" style="margin-left:10px"></span>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
+      <span>© <span id="year"></span> Morla Joseph</span>
+      <div class="tags">
+        <a class="tag" href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    if(localStorage.getItem('theme')==='light'){ body.classList.add('light'); }
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      localStorage.setItem('theme', body.classList.contains('light') ? 'light':'dark');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit',(e)=>{e.preventDefault();status.textContent='Sending…';setTimeout(()=>{status.textContent='Thanks!';form.reset();},700);});
+  </script>
+</body>
+</html>
